@@ -20,18 +20,18 @@
 
 {% endput %}
 
-<div id="slick">
+<div id="{{ __SELF__.id }}">
 	{% for image in gallery.images %}
 		{% if obj.showThumbs == 'true' %}
 			<div>
 
-				{% if obj.zoomImages %}
-				<a class="fancybox" rel="{{__SELF__.id}}" href="{{ image.path }}" title="{{ image.title }}"/>
+				{% if obj.zoomImages == 'true' %}
+				<a class="fancybox" rel="{{ __SELF__.id }}" href="{{ image.path }}" title="{{ image.title }}"/>
 				{% endif %}
 
 					<img src="{{ image.thumb(obj.thumbWidth,obj.thumbHeight, { mode: 'crop' }) }}" alt="{{ image.title }}" />
 				
-				{% if obj.zoomImages %}
+				{% if obj.zoomImages == 'true' %}
 				</a>
 				{% endif %}
 			</div>
@@ -62,7 +62,7 @@
 	{% if obj.activeSlider == 'true' %}
 		<script type="text/javascript">
 		    $(document).ready(function(){
-		        $('#slick').slick({
+		        $("#{{ __SELF__.id }}").slick({
 				  dots: {{ obj.dots }},
 				  infinite: {{ obj.infinite }},
 				  speed: {{ obj.speed }},
