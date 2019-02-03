@@ -1,0 +1,10 @@
+name: FlexGallery
+form: $/diveramkt/flexgallery/models/gallery/fields.yaml
+modelClass: Diveramkt\Flexgallery\Models\Gallery
+defaultRedirect: diveramkt/flexgallery/flexgallery
+create:
+    redirect: 'diveramkt/flexgallery/flexgallery/update/:id'
+    redirectClose: diveramkt/flexgallery/flexgallery
+update:
+    redirect: diveramkt/flexgallery/flexgallery
+    redirectClose: diveramkt/flexgallery/flexgallery

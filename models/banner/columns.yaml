@@ -1,0 +1,12 @@
+columns:
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        type: text
+        searchable: true
+        sortable: true
+    onebanner:
+        label: 'diveramkt.flexgallery::lang.flexgallery.qtd_banners'
+        type: partial
+        searchable: true
+        sortable: true
+        path: ~/plugins/diveramkt/flexgallery/models/banner/_qtd_banners.htm

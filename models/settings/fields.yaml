@@ -1,0 +1,6 @@
+fields:
+    load_jquery:
+        label: 'Load jQuery plugin?'
+        span: auto
+        default: 1
+        type: switch

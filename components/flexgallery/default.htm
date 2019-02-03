@@ -1,0 +1,121 @@
+{% set obj = __SELF__ %}
+{% set gallery = __SELF__.gallery %}
+
+<!-- Load Styles -->
+{% put styles %}
+
+	{% if obj.activeSlider == 'true' %}
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
+		<style>
+			.slick-slide img {
+				margin: 0px auto;
+			}
+		</style>
+	{% endif %}
+
+	{% if obj.zoomImages == 'true' %}
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css" rel="stylesheet">
+	{% endif %}
+
+{% endput %}
+
+<div id="slick">
+	{% for image in gallery.images %}
+		{% if obj.showThumbs == 'true' %}
+			<div>
+
+				{% if obj.zoomImages %}
+				<a class="fancybox" rel="{{__SELF__.id}}" href="{{ image.path }}" title="{{ image.title }}"/>
+				{% endif %}
+
+					<img src="{{ image.thumb(obj.thumbWidth,obj.thumbHeight, { mode: 'crop' }) }}" alt="{{ image.title }}" />
+				
+				{% if obj.zoomImages %}
+				</a>
+				{% endif %}
+			</div>
+		{% else %}
+			<div><img src="{{ image.path }}" /></div>
+		{% endif %}
+	{% endfor %}
+</div>
+
+<!-- Load Script -->
+{% put scripts %}
+	{% if obj.settings.load_jquery == 'true' %}
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	{% endif %}
+
+	{% if obj.activeSlider == 'true' %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+	{% endif %}
+
+	{% if obj.zoomImages == 'true' %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+	{% endif %}
+
+{% endput %}
+
+{% put scripts %}
+
+	{% if obj.activeSlider == 'true' %}
+		<script type="text/javascript">
+		    $(document).ready(function(){
+		        $('#slick').slick({
+				  dots: {{ obj.dots }},
+				  infinite: {{ obj.infinite }},
+				  speed: {{ obj.speed }},
+				  slidesToShow: {{ obj.slidesToShow }},
+				  slidesToScroll: {{ obj.slidesToScrow }},
+				  autoplay: {{ obj.autoPlay}},
+		  		  autoplaySpeed: {{ obj.autoPlaySpeed }},
+		  		  arrows: {{ obj.arrows }},
+
+				  responsive: [
+				    {
+				      breakpoint: 1024,
+				      settings: {
+				        slidesToShow: {{ obj.r1024_slidesToShow }},
+				        slidesToScroll: {{ obj.r1024_slidesToScrow }},
+				        dots: {{ obj.r1024_dots }}
+				      }
+				    },
+				    {
+				      breakpoint: 600,
+				      settings: {
+				        slidesToShow: {{ obj.r600_slidesToShow }},
+				        slidesToScroll: {{ obj.r600_slidesToScrow }},
+				        dots: {{ obj.r600_dots }}
+				      }
+				    },
+				    {
+				      breakpoint: 480,
+				      settings: {
+				        slidesToShow: {{ obj.r480_slidesToShow }},
+				        slidesToScroll: {{ obj.r480_slidesToScrow }},
+				        dots: {{ obj.r480_dots }}
+				      }
+				    }
+				  ]
+
+				});
+		    });
+		</script>
+	{% endif %}
+
+	{% if obj.zoomImages == 'true' %}
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("a.fancybox").fancybox({
+					'transitionIn'	:	'elastic',
+					'transitionOut'	:	'elastic',
+					'speedIn'		:	600, 
+					'speedOut'		:	200, 
+					'overlayShow'	:	false
+				});
+			});
+		</script>
+	{% endif %}
+
+{% endput %}

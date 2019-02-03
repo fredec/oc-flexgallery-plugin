@@ -1,0 +1,14 @@
+fields:
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text
+tabs:
+    fields:
+        onebanner:
+            span: full
+            type: partial
+            tab: Banners
+            path: ~/plugins/diveramkt/flexgallery/controllers/banners/_banners.htm

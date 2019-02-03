@@ -1,0 +1,10 @@
+name: Banners
+form: $/diveramkt/flexgallery/models/banner/fields.yaml
+modelClass: Diveramkt\Flexgallery\Models\Banner
+defaultRedirect: diveramkt/flexgallery/banners
+create:
+    redirect: 'diveramkt/flexgallery/banners/update/:id'
+    redirectClose: diveramkt/flexgallery/banners
+update:
+    redirect: diveramkt/flexgallery/banners
+    redirectClose: diveramkt/flexgallery/banners

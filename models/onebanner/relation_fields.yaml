@@ -1,0 +1,61 @@
+fields:
+    image:
+        label: 'diveramkt.flexgallery::lang.flexgallery.image'
+        oc.commentPosition: ''
+        mode: image
+        span: right
+        required: 1
+        type: mediafinder
+    enabled:
+        label: 'diveramkt.flexgallery::lang.flexgallery.enabled'
+        span: auto
+        default: 1
+        type: switch
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        oc.commentPosition: ''
+        span: left
+        required: 1
+        type: text
+    description:
+        label: 'diveramkt.flexgallery::lang.flexgallery.description'
+        oc.commentPosition: ''
+        span: left
+        required: 0
+        type: text
+    position:
+        label: 'diveramkt.flexgallery::lang.flexgallery.position'
+        options:
+            center: Center
+            left: Left
+            right: Right
+        span: left
+        type: dropdown
+    bc_image:
+        label: 'diveramkt.flexgallery::lang.flexgallery.bc_image'
+        mode: image
+        span: left
+        type: mediafinder
+tabs:
+    fields:
+        link:
+            label: Link
+            oc.commentPosition: ''
+            span: full
+            required: 0
+            type: text
+            tab: Link
+        btn_label:
+            label: 'diveramkt.flexgallery::lang.flexgallery.btn_label'
+            oc.commentPosition: ''
+            span: left
+            required: 0
+            type: text
+            tab: Link
+        btn_color:
+            label: 'diveramkt.flexgallery::lang.flexgallery.btn_color'
+            oc.commentPosition: ''
+            span: right
+            required: 0
+            type: colorpicker
+            tab: Link

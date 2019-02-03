@@ -1,0 +1,6 @@
+columns:
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        type: text
+        searchable: true
+        sortable: true

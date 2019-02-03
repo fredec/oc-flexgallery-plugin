@@ -1,0 +1,12 @@
+list: $/diveramkt/flexgallery/models/gallery/columns.yaml
+modelClass: Diveramkt\Flexgallery\Models\Gallery
+title: FlexGallery
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'diveramkt/flexgallery/flexgallery/update/:id'

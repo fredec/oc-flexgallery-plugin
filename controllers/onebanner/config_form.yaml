@@ -1,0 +1,10 @@
+name: OneBanner
+form: $/diveramkt/flexgallery/models/onebanner/fields.yaml
+modelClass: Diveramkt\Flexgallery\Models\OneBanner
+defaultRedirect: diveramkt/flexgallery/onebanner
+create:
+    redirect: 'diveramkt/flexgallery/onebanner/update/:id'
+    redirectClose: diveramkt/flexgallery/onebanner
+update:
+    redirect: diveramkt/flexgallery/onebanner
+    redirectClose: diveramkt/flexgallery/onebanner

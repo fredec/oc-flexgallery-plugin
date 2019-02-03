@@ -1,0 +1,4 @@
+title: FlexGallery
+modelClass: Diveramkt\Flexgallery\Models\Gallery
+toolbar:
+    buttons: reorder_toolbar

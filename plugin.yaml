@@ -1,0 +1,27 @@
+plugin:
+    name: 'diveramkt.flexgallery::lang.plugin.name'
+    description: 'diveramkt.flexgallery::lang.plugin.description'
+    author: DiveraMkt
+    icon: oc-icon-image
+    homepage: 'http://www.diveramkt.com.br'
+permissions:
+    manage_flexgallery:
+        tab: 'diveramkt.flexgallery::lang.plugin.name'
+        label: 'diveramkt.flexgallery::lang.flexgallery.manage_flexgallery'
+    manage_banners:
+        tab: 'diveramkt.flexgallery::lang.plugin.name'
+        label: 'diveramkt.flexgallery::lang.flexgallery.banner'
+navigation:
+    main-menu-flexgallery:
+        label: 'diveramkt.flexgallery::lang.plugin.name'
+        url: diveramkt/flexgallery/flexgallery
+        icon: icon-image
+        sideMenu:
+            side-menu-gallery:
+                label: 'diveramkt.flexgallery::lang.flexgallery.gallery'
+                url: diveramkt/flexgallery/flexgallery
+                icon: icon-image
+            side-menu-banners:
+                label: 'diveramkt.flexgallery::lang.flexgallery.banners'
+                url: diveramkt/flexgallery/banners
+                icon: icon-desktop

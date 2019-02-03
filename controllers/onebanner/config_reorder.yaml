@@ -1,0 +1,4 @@
+title: OneBanner
+modelClass: Diveramkt\Flexgallery\Models\OneBanner
+toolbar:
+    buttons: reorder_toolbar

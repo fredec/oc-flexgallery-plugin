@@ -1,0 +1,19 @@
+fields:
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        oc.commentPosition: ''
+        span: full
+        required: 1
+        type: text
+    images:
+        label: 'diveramkt.flexgallery::lang.flexgallery.images'
+        span: full
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        imageWidth: '1200'
+        required: 1
+        type: fileupload
