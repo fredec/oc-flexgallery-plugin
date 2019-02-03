@@ -1,25 +1,6 @@
 {% set obj = __SELF__ %}
 {% set gallery = __SELF__.gallery %}
 
-<!-- Load Styles -->
-{% put styles %}
-
-	{% if obj.activeSlider == 'true' %}
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
-		<style>
-			.slick-slide img {
-				margin: 0px auto;
-			}
-		</style>
-	{% endif %}
-
-	{% if obj.zoomImages == 'true' %}
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css" rel="stylesheet">
-	{% endif %}
-
-{% endput %}
-
 <div id="{{ __SELF__.id }}">
 	{% for image in gallery.images %}
 		{% if obj.showThumbs == 'true' %}
@@ -43,16 +24,9 @@
 
 <!-- Load Script -->
 {% put scripts %}
+
 	{% if obj.settings.load_jquery == 'true' %}
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	{% endif %}
-
-	{% if obj.activeSlider == 'true' %}
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-	{% endif %}
-
-	{% if obj.zoomImages == 'true' %}
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
 	{% endif %}
 
 {% endput %}

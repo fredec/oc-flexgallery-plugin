@@ -235,6 +235,19 @@ class FlexGallery extends ComponentBase
 		$this->r480_slidesToScrow = $this->property('r480_slidesToScrow');
 		$this->r480_dots = $this->property('r480_dots');
 
+
+		if ($this->activeSlider == 'true') {
+			$this->addCss('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css');
+        	$this->addCss('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css');
+        	$this->addCss('assets/flexgallery.css');
+        	$this->addJs('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js');
+        }
+
+        if ($this->zoomImages == 'true') {
+			$this->addCss('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css');
+			$this->addJs('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js');
+        }
+
 		$this->createSettingsFields();
 	}
 
