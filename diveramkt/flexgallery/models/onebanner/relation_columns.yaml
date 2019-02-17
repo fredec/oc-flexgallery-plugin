@@ -4,6 +4,11 @@ columns:
         type: text
         searchable: true
         sortable: true
+    subtitle:
+        label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
+        type: text
+        searchable: true
+        sortable: true
     image:
         label: 'diveramkt.flexgallery::lang.flexgallery.image'
         type: partial

@@ -20,5 +20,6 @@
         'position' => 'Posição',
         'enabled' => 'Habilitado/Desabilitado',
         'bc_image' => 'Imagem de Fundo',
+        'subtitle' => 'Subtítulo',
     ],
 ];

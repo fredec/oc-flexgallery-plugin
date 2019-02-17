@@ -17,12 +17,15 @@ fields:
         span: left
         required: 1
         type: text
+    subtitle:
+        label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
+        span: left
+        type: text
     description:
         label: 'diveramkt.flexgallery::lang.flexgallery.description'
-        oc.commentPosition: ''
+        size: small
         span: left
-        required: 0
-        type: text
+        type: richeditor
     position:
         label: 'diveramkt.flexgallery::lang.flexgallery.position'
         options:
