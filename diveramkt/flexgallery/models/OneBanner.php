@@ -33,6 +33,6 @@ class OneBanner extends Model
 
     public function scopeIsEnabled($query) 
     {
-        return $query->where('enabled', true);
+        return $query->where('enabled', true)->orderBy('id', 'desc');
     }
 }
