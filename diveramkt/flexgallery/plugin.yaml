@@ -16,12 +16,18 @@ navigation:
         label: 'diveramkt.flexgallery::lang.plugin.name'
         url: diveramkt/flexgallery/flexgallery
         icon: icon-image
+        permissions:
+                    - manage_flexgallery
         sideMenu:
             side-menu-gallery:
                 label: 'diveramkt.flexgallery::lang.flexgallery.gallery'
                 url: diveramkt/flexgallery/flexgallery
                 icon: icon-image
+                permissions:
+                    - manage_flexgallery
             side-menu-banners:
                 label: 'diveramkt.flexgallery::lang.flexgallery.banners'
                 url: diveramkt/flexgallery/banners
                 icon: icon-desktop
+                permissions:
+                    - manage_banners
