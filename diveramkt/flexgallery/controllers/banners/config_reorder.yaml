@@ -1,4 +1,5 @@
 title: Banners
+nameFrom: title
 modelClass: Diveramkt\Flexgallery\Models\Banner
 toolbar:
     buttons: reorder_toolbar

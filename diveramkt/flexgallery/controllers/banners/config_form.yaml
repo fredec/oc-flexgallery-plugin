@@ -5,6 +5,7 @@ defaultRedirect: diveramkt/flexgallery/banners
 create:
     redirect: 'diveramkt/flexgallery/banners/update/:id'
     redirectClose: diveramkt/flexgallery/banners
+    form: $/diveramkt/flexgallery/models/banner/fields_create.yaml
 update:
     redirect: diveramkt/flexgallery/banners
     redirectClose: diveramkt/flexgallery/banners

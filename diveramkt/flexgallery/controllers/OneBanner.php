@@ -20,4 +20,16 @@ class OneBanner extends Controller
         parent::__construct();
         BackendMenu::setContext('Diveramkt.Flexgallery', 'main-menu-flexgallery', 'side-menu-onebanner');
     }
+
+    public function reorderExtendQuery($query)
+    {
+        $veri=explode('reorder/',$_SERVER['REDIRECT_URL']);
+        if(isset($veri[1]) && is_numeric($veri[1])) return $query->where('banner_id','=',$veri[1]);
+    }
+
+    public function listExtendQuery($query)
+    {
+        $query->orderBy('sort_order', 'desc');
+        return $query;
+    }
 }

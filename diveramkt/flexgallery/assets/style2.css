@@ -1,0 +1,52 @@
+.Vcenter{position: relative;display: table;height: 100%;}
+.Vcenter>div:first-child{
+  position: relative;display: table-cell;vertical-align: middle;margin-top: 50%;
+  #margin-top: 0;#float: left;#width: 100%;
+}
+
+.ul_banner .main-banner{background-position: center!important}
+.ul_banner .main-banner .Vcenter{height: 500px;width: 100%;position: relative;overflow: hidden;}
+.ul_banner .banner-image .banner-content{float: left;width: 100%;}
+.ul_banner .banner-image .banner-content > *{
+  text-shadow: 0px 0px 10px #000000;
+  -webkit-text-shadow: 0px 0px 10px #000000;
+  -o-text-shadow: 0px 0px 10px #000000;
+  -moz-text-shadow: 0px 0px 10px #000000;
+}
+.ul_banner .banner-image .position_left{text-align: left;}
+.ul_banner .banner-image .position_center, .ul_banner .banner-image .position_center > *{text-align: center;}
+.ul_banner .banner-image .position_center p{width: auto;}
+.ul_banner .banner-image .position_center p, .ul_banner .banner-image .position_center .div_link{margin: 0 auto;float: none;display: table;}
+.ul_banner .banner-image .position_right p, .ul_banner .banner-image .position_right .div_link{float: right;}
+.ul_banner .banner-image .position_right, .ul_banner .banner-image .position_right > *{text-align: right;}
+.ul_banner .banner-image + .banner-image{display: none;}
+
+
+.ul_banner .slick-prev, .ul_banner .slick-next{
+  z-index: 99;height: 50px;width: 30px;color: white;
+}
+/*.ul_banner .slick-prev button, .ul_banner .slick-next button{font-size: 20em;}*/
+.ul_banner .slick-prev{left: 25px;}
+.ul_banner .slick-prev:before, .ul_banner .slick-next:before{
+  font: normal normal normal 14px/1 FontAwesome!important;
+  font-size: 60px!important;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -30px;
+  margin-left: -10.5px;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+.ul_banner .slick-prev:before{content: "\f104";}
+.ul_banner .slick-next{right: 25px;}
+.ul_banner .slick-next:before{content: "\f105";}
+
+@media(max-width: 767px){
+  .ul_banner .banner-image .position_left > *{padding-left: 30px;}
+  .ul_banner .banner-image .position_right > *{padding-right: 30px;}
+  .ul_banner .banner-image .position_left > a{margin-left: 30px;}
+  .ul_banner .banner-image .position_right > a{margin-right: 30px;}
+  .ul_banner .slick-next{right: 5px;}
+  .ul_banner .slick-prev{left: 5px;}
+}

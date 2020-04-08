@@ -1,0 +1,197 @@
+[viewBag]
+==
+{% set obj = __SELF__ %}
+{% set banners = __SELF__.gallery.banners %}
+{% if banners.count > 0 %}
+
+{% put styles %}
+<link href="{{ 'assets/css/animate.css'|theme }}" rel="stylesheet">
+{% endput %}
+
+<section class="ul_banner">
+
+<!-- Start Main Banner 
+	============================================-->
+
+	{% for cur in banners %}
+	<div class="main-banner banner-image" style="background-image: url('{{ cur.image|media|resize(1920,800) }}')">
+		<div class="container h-100">
+			<div class="Vcenter">
+				<div class="">
+					<div class="banner-content color-black position_{{cur.position}}">
+
+						<h4 style="opacity: 0;" class="animated fast color-black letter-spacing-1 large-title tp-resizeme slidertext2">{{cur.subtitle|raw}}</h4>
+						<h2 style="opacity: 0;margin-top: 0;" class="animated fast banner-title color-black my-15 h1 large-title tp-resizeme slidertext1">{{cur.title|raw}}</h2>
+						<div style="opacity: 0" class="animated fast caption lfb large-title tp-resizeme slidertext2">
+							{{html_strip(cur.description|raw)}}
+						</div>
+
+						{% if cur.link %}
+						<div style="opacity: 0" class="animated fast div_link">
+							<a class="pull-left botao btn btn-default" {{cur.link|target}} href="{{ cur.link|prep_url }}">{{ not cur.btn_label ? 'Acessar' : cur.btn_label }}</a>
+						</div>
+						{% endif %}
+
+					</div>
+				</div>        
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+</section>
+	<!-- End Main Banner
+		============================================-->
+		
+
+		<div id="slick" style="display: none;">
+			{% for image in banners %}
+			{% if image.link %}
+			<a href="{{ image.link }}" title="{{ image.title }}">
+				{% endif %}
+
+				{% if obj.showThumbs == 'true' %}
+				<div><img src="{{ image.image|media|resize(obj.thumbWidth,obj.thumbHeight, { mode: 'crop', quality: '100' }) }}" /></div>
+				{% else %}
+				<div><img src="{{ image.image|media }}" /></div>
+				{% endif %}
+
+				{% if image.link %}
+			</a>
+			{% endif %}
+			{% endfor %}
+		</div>
+
+		{% if banners.count == 1 %}
+
+		{% put scripts %}
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				function addclassanimate(alvo, animate, time){
+					setTimeout(function(){
+						$(alvo).css({opacity: 1});
+						$(alvo).addClass(animate);
+						setTimeout(function(){ $(alvo).removeClass(animate); }, 800);
+					}, time);
+				}
+
+				if($('.banner-content.position_left').attr('class') != undefined){
+					$('.ul_banner').find('.banner-content.position_left > *').each(function(index){
+						addclassanimate(this, 'bounceInLeft', (index*100));
+					})
+				}
+				if($('.banner-content.position_right').attr('class') != undefined){
+					$('.ul_banner').find('.banner-content.position_right > *').each(function(index){
+						addclassanimate(this, 'bounceInRight', (index*100));
+					})
+				}
+				if($('.banner-content.position_center').attr('class') != undefined){
+					$('.ul_banner').find('.banner-content.position_center > *').each(function(index){
+						addclassanimate(this, 'bounceIn', (index*100));
+					})
+				}
+
+			});
+		</script>
+		{% endput %}
+		{% endif %}
+
+		{% if banners.count > 1 %}
+
+		{% put styles %}
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
+		{% endput %}
+
+		{% put scripts %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+		{% endput %}
+
+		{% put scripts %}
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.ul_banner').slick({
+					dots: {{ obj.dots }},
+					infinite: {{ obj.infinite }},
+					speed: {{ obj.speed }},
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					autoplay: {{ obj.autoPlay}},
+					autoplaySpeed: {{ obj.autoPlaySpeed }},
+					arrows: {{ obj.arrows }},
+					mobileFirst: true,
+					centerMode: false,
+					pauseOnHover: true,
+				});
+
+ //  //REINICIAR BANNER APOS RETIRAR O MOUSE
+ $('.ul_banner').mouseout(function(event) {
+ 	$('.ul_banner').slick('slickPlay').slick('setOption', 'autoplay', true);
+ });
+ //  //REINICIAR BANNER APOS RETIRAR O MOUSE
+
+ $('.ul_banner .slick-slide').find('.banner-content > *').css({opacity: 0});
+ if($('.banner-content.position_left').attr('class') != undefined){
+ 	$('.ul_banner').find('.banner-content.position_left > *').each(function(index){
+ 		addclassanimate(this, 'bounceInLeft', (index*100));
+ 	})
+ }
+ if($('.banner-content.position_right').attr('class') != undefined){
+ 	$('.ul_banner').find('.banner-content.position_right > *').each(function(index){
+ 		addclassanimate(this, 'bounceInRight', (index*100));
+ 	})
+ }
+ if($('.banner-content.position_center').attr('class') != undefined){
+ 	$('.ul_banner').find('.banner-content.position_center > *').each(function(index){
+ 		addclassanimate(this, 'bounceIn', (index*100));
+ 	})
+ }
+
+ // // ANTES DE TROCAR
+ $('.ul_banner').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+ 	nextSlide=$('.ul_banner .slick-slide[data-slick-index="'+nextSlide+'"]');
+ 	currentSlide=$('.ul_banner .slick-slide[data-slick-index="'+currentSlide+'"]');
+
+ 	$('.ul_banner').find('.banner-content > *').css({opacity: 0});
+ 	$(currentSlide).find('.banner-content > *').css({opacity: 1});
+
+ });
+
+ //   // APOS A TROCA
+
+ function addclassanimate(alvo, animate, time){
+ 	setTimeout(function(){
+ 		$(alvo).css({opacity: 1});
+ 		$(alvo).addClass(animate);
+
+ 		setTimeout(function(){ $(alvo).removeClass(animate); }, 800);
+
+ 	}, time);
+ }
+
+ $('.ul_banner').on('afterChange', function(event, slick, currentSlide, nextSlide){
+ 	currentSlide=$('.ul_banner .slick-slide[data-slick-index="'+currentSlide+'"]');
+ 	nextSlide=$('.ul_banner .slick-slide[data-slick-index="'+nextSlide+'"]');
+
+ 	$('.ul_banner').find('.banner-content > *').css({opacity: 0});
+
+
+ 	$(currentSlide).find('.banner-content.position_left > *').each(function(index){
+ 		addclassanimate(this, 'bounceInLeft', (index*100));
+ 	})
+ 	$(currentSlide).find('.banner-content.position_right > *').each(function(index){
+ 		addclassanimate(this, 'bounceInRight', (index*100));
+ 	})
+ 	$(currentSlide).find('.banner-content.position_center > *').each(function(index){
+ 		addclassanimate(this, 'bounceIn', (index*100));
+ 	})
+
+ });
+
+});
+</script>
+{% endput %}
+{% endif %}
+
+{% endif %}

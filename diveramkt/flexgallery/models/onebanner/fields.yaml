@@ -19,9 +19,12 @@ fields:
         span: left
         required: 0
         type: text
+    color_fundo:
+        label: 'Cor de fundo com o banner'
+        span: left
+        type: colorpicker
     image:
         label: 'diveramkt.flexgallery::lang.flexgallery.image'
-        oc.commentPosition: ''
         mode: image
         span: left
         required: 1

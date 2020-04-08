@@ -32,8 +32,13 @@ fields:
             center: Center
             left: Left
             right: Right
+        showSearch: true
         span: left
         type: dropdown
+    color_fundo:
+        label: 'Cor de fundo com o banner'
+        span: left
+        type: colorpicker
     bc_image:
         label: 'diveramkt.flexgallery::lang.flexgallery.bc_image'
         mode: image

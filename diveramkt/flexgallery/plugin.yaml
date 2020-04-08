@@ -5,29 +5,30 @@ plugin:
     icon: oc-icon-image
     homepage: 'http://www.diveramkt.com.br'
 permissions:
-    flexgallery.manage_flexgallery:
-        tab: 'diveramkt.flexgallery::lang.plugin.name'
-        label: 'diveramkt.flexgallery::lang.flexgallery.manage_flexgallery'
-    flexgallery.manage_banners:
+    # manage_flexgallery:
+    #     tab: 'diveramkt.flexgallery::lang.plugin.name'
+    #     label: 'diveramkt.flexgallery::lang.flexgallery.manage_flexgallery'
+    manage_banners:
         tab: 'diveramkt.flexgallery::lang.plugin.name'
         label: 'diveramkt.flexgallery::lang.flexgallery.banner'
 navigation:
     main-menu-flexgallery:
         label: 'diveramkt.flexgallery::lang.plugin.name'
-        url: diveramkt/flexgallery/flexgallery
+        url: diveramkt/flexgallery/banners
         icon: icon-image
         permissions:
-                    - flexgallery.manage_flexgallery
+                    # - manage_flexgallery
+                    - manage_banners
         sideMenu:
-            side-menu-gallery:
-                label: 'diveramkt.flexgallery::lang.flexgallery.gallery'
-                url: diveramkt/flexgallery/flexgallery
-                icon: icon-image
-                permissions:
-                    - flexgallery.manage_flexgallery
             side-menu-banners:
                 label: 'diveramkt.flexgallery::lang.flexgallery.banners'
                 url: diveramkt/flexgallery/banners
                 icon: icon-desktop
                 permissions:
-                    - flexgallery.manage_banners
+                    - manage_banners
+            # side-menu-gallery:
+            #     label: 'diveramkt.flexgallery::lang.flexgallery.gallery'
+            #     url: diveramkt/flexgallery/flexgallery
+            #     icon: icon-image
+            #     permissions:
+            #         - manage_flexgallery

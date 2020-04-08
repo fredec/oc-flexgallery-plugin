@@ -1,0 +1,8 @@
+<?php
+$id_='';
+$veri=explode('update/',$_SERVER['REDIRECT_URL']);
+if(isset($veri[1]) && is_numeric($veri[1])) $id_=$veri[1];
+?>
+
+<!-- https://octobercms.com/forum/post/how-to-add-custom-toolbarbuttons-in-relation-controllers -->
+<a href="<?= Backend::url('diveramkt/flexgallery/onebanner/reorder/'.$id_) ?>" class="btn btn-sm btn-secondary oc-icon-list"><?= e(trans('backend::lang.reorder.default_title')) ?></a>

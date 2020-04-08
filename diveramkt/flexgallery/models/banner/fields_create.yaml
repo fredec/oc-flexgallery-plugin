@@ -1,0 +1,7 @@
+fields:
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text

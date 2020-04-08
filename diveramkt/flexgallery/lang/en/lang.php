@@ -1,6 +1,6 @@
 <?php return [
     'plugin' => [
-        'name' => 'FlexGallery',
+        'name' => 'Banners',
         'description' => '',
     ],
     'flexgallery' => [
@@ -19,7 +19,7 @@
         'banner_type' => 'Tipo de banner',
         'position' => 'Posição',
         'enabled' => 'Habilitado/Desabilitado',
-        'bc_image' => 'Imagem de Fundo',
+        'bc_image' => 'Imagem de Fundo (Manter proporção de 1688/623)',
         'subtitle' => 'Subtítulo',
     ],
 ];

@@ -5,4 +5,4 @@ onebanner:
         list: $/diveramkt/flexgallery/models/onebanner/relation_columns.yaml
     view:
         list: $/diveramkt/flexgallery/models/onebanner/relation_columns.yaml
-        toolbarButtons: create|delete
+        toolbarButtons: create|delete|sort
