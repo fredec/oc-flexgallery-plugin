@@ -1,0 +1,11 @@
+fields:
+    page:
+        label: Página
+        showSearch: true
+        span: auto
+        type: dropdown
+    banner:
+        label: Banner
+        mode: image
+        span: right
+        type: mediafinder

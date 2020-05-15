@@ -3,100 +3,100 @@
 
 {% if obj.settings.load_styles %}
 
-	<!-- Load Styles -->
-	{% put styles %}
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
-		<style>
-			.slick-slide img {
-				margin: 0px auto;
-			}
-		</style>
-	{% endput %}
+<!-- Load Styles -->
+{% put styles %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
+<style>
+.slick-slide img {
+	margin: 0px auto;
+}
+</style>
+{% endput %}
 
 {% endif %}
 
 <div id="slick">
 	{% for image in banners %}
-		{% if image.link %}
-			<a href="{{ image.link }}" title="{{ image.title }}">
+	{% if image.link %}
+	<a href="{{ image.btn_tipo == 1 ? image.link|link_whatsapp_botao : image.link }}" {{image.link|target_link_banner}} title="{{ image.title }}">
 		{% endif %}
 
 		{% if obj.showThumbs == 'true' %}
-			<div><img src="{{ image.image|media|resize(obj.thumbWidth,obj.thumbHeight, { mode: 'crop', quality: '100' }) }}" /></div>
+		<div><img src="{{ image.image|media|resize(obj.thumbWidth,obj.thumbHeight, { mode: 'crop', quality: '100' }) }}" /></div>
 		{% else %}
-			<div><img src="{{ image.image|media }}" /></div>
+		<div><img src="{{ image.image|media }}" /></div>
 		{% endif %}
 
 		{% if image.link %}
-			</a>
-		{% endif %}
+	</a>
+	{% endif %}
 	{% endfor %}
 </div>
 
 {% if obj.settings.load_script %}
-	<!-- Load Script -->
-	{% put scripts %}
-		{% if obj.settings.load_jquery == 'true' %}
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		{% endif %}
+<!-- Load Script -->
+{% put scripts %}
+{% if obj.settings.load_jquery == 'true' %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+{% endif %}
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-	{% endput %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+{% endput %}
 {% endif %}
 
 {% put scripts %}
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('#slick').slick({
-		  dots: {{ obj.dots }},
-		  infinite: {{ obj.infinite }},
-		  speed: {{ obj.speed }},
-		  slidesToShow: {{ obj.slidesToShow }},
-		  slidesToScroll: {{ obj.slidesToScrow }},
-		  autoplay: {{ obj.autoPlay}},
-  		  autoplaySpeed: {{ obj.autoPlaySpeed }},
-  		  arrows: {{ obj.arrows }},
-		  mobileFirst: true,
-     	  centerMode: false,
+	$(document).ready(function(){
+		$('#slick').slick({
+			dots: {{ obj.dots }},
+			infinite: {{ obj.infinite }},
+			speed: {{ obj.speed }},
+			slidesToShow: {{ obj.slidesToShow }},
+			slidesToScroll: {{ obj.slidesToScrow }},
+			autoplay: {{ obj.autoPlay}},
+			autoplaySpeed: {{ obj.autoPlaySpeed }},
+			arrows: {{ obj.arrows }},
+			mobileFirst: true,
+			centerMode: false,
 
-		  responsive: [
-		    {
-		      breakpoint: 1024,
-		      variableWidth: true,
-		      centerMode: false,
-		      mobileFirst: true,
-		      settings: {
-		        slidesToShow: {{ obj.r1024_slidesToShow }},
-		        slidesToScroll: {{ obj.r1024_slidesToScrow }},
-		        dots: {{ obj.r1024_dots }}
-		      }
-		    },
-		    {
-		      breakpoint: 600,
-		      variableWidth: true,
-		      centerMode: false,
-		      mobileFirst: true,
-		      settings: {
-		        slidesToShow: {{ obj.r600_slidesToShow }},
-		        slidesToScroll: {{ obj.r600_slidesToScrow }},
-		        dots: {{ obj.r600_dots }}
-		      }
-		    },
-		    {
-		      breakpoint: 480,
-		      variableWidth: true,
-		      centerMode: false,
-		      mobileFirst: true,
-		      settings: {
-		        slidesToShow: {{ obj.r480_slidesToShow }},
-		        slidesToScroll: {{ obj.r480_slidesToScrow }},
-		        dots: {{ obj.r480_dots }}
-		      }
-		    }
-		  ]
+			responsive: [
+			{
+				breakpoint: 1024,
+				variableWidth: true,
+				centerMode: false,
+				mobileFirst: true,
+				settings: {
+					slidesToShow: {{ obj.r1024_slidesToShow }},
+					slidesToScroll: {{ obj.r1024_slidesToScrow }},
+					dots: {{ obj.r1024_dots }}
+				}
+			},
+			{
+				breakpoint: 600,
+				variableWidth: true,
+				centerMode: false,
+				mobileFirst: true,
+				settings: {
+					slidesToShow: {{ obj.r600_slidesToShow }},
+					slidesToScroll: {{ obj.r600_slidesToScrow }},
+					dots: {{ obj.r600_dots }}
+				}
+			},
+			{
+				breakpoint: 480,
+				variableWidth: true,
+				centerMode: false,
+				mobileFirst: true,
+				settings: {
+					slidesToShow: {{ obj.r480_slidesToShow }},
+					slidesToScroll: {{ obj.r480_slidesToScrow }},
+					dots: {{ obj.r480_dots }}
+				}
+			}
+			]
 
 		});
-    });
+	});
 </script>
 {% endput %}

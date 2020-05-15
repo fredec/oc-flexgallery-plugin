@@ -1,0 +1,12 @@
+columns:
+    page:
+        label: Página
+        # type: text
+        type: partial
+        path: $/diveramkt/flexgallery/controllers/_coluna_pages.htm
+        searchable: true
+    banner:
+        label: Banner
+        # type: text
+        type: partial
+        path: $/diveramkt/flexgallery/controllers/_coluna_imagem_media.htm

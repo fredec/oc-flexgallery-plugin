@@ -1,0 +1,11 @@
+name: BannersPages
+form: $/diveramkt/flexgallery/models/bannerpages/fields.yaml
+modelClass: Diveramkt\Flexgallery\Models\BannerPages
+defaultRedirect: diveramkt/flexgallery/bannerspages
+create:
+    redirect: 'diveramkt/flexgallery/bannerspages/update/:id'
+    redirectClose: diveramkt/flexgallery/bannerspages
+update:
+    redirect: diveramkt/flexgallery/bannerspages
+    redirectClose: diveramkt/flexgallery/bannerspages
+    form: $/diveramkt/flexgallery/models/bannerpages/fields_edit.yaml

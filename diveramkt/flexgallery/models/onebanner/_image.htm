@@ -1,1 +1,12 @@
+<?php
+$ext=explode('.',$value);
+if(end($ext) == 'mp4'){
+?>
+<p>Arquivo de Vídeo</p>
+<?php
+}else{
+?>
 <img src="<?php echo Cms::url()?>/storage/app/media<?=$value?>" height="100px" />
+<?php
+}
+?>

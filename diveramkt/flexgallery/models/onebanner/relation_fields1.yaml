@@ -1,0 +1,86 @@
+fields:
+    image:
+        label: 'diveramkt.flexgallery::lang.flexgallery.image'
+        oc.commentPosition: ''
+        mode: image
+        span: right
+        required: 1
+        type: mediafinder
+    enabled:
+        label: 'diveramkt.flexgallery::lang.flexgallery.enabled'
+        span: auto
+        default: 1
+        type: switch
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        oc.commentPosition: ''
+        span: left
+        required: 1
+        type: text
+    subtitle:
+        label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
+        span: left
+        type: text
+    description:
+        label: 'diveramkt.flexgallery::lang.flexgallery.description'
+        size: small
+        span: left
+        type: richeditor
+    position:
+        label: 'diveramkt.flexgallery::lang.flexgallery.position'
+        options:
+            center: Center
+            left: Left
+            right: Right
+        showSearch: true
+        span: left
+        type: dropdown
+    color_fundo:
+        label: 'Cor de fundo com o banner'
+        span: left
+        type: colorpicker
+    bc_image:
+        label: 'diveramkt.flexgallery::lang.flexgallery.bc_image'
+        mode: image
+        span: left
+        type: mediafinder
+tabs:
+    fields:
+        link:
+            label: Link
+            span: auto
+            required: 0
+            type: text
+            tab: Link
+        btn_tipo:
+            label: 'Botão Whatsapp'
+            span: auto
+            type: switch
+            tab: Link
+        btn_label:
+            label: 'diveramkt.flexgallery::lang.flexgallery.btn_label'
+            span: left
+            required: 0
+            type: text
+            tab: Link
+        btn_color:
+            label: 'diveramkt.flexgallery::lang.flexgallery.btn_color'
+            span: right
+            required: 0
+            type: colorpicker
+            tab: Link
+        link2:
+            label: Link
+            span: full
+            type: text
+            tab: Link2
+        btn_label2:
+            label: 'diveramkt.flexgallery::lang.flexgallery.btn_label'
+            span: left
+            type: text
+            tab: Link2
+        btn_color2:
+            label: 'diveramkt.flexgallery::lang.flexgallery.btn_color'
+            span: right
+            type: colorpicker
+            tab: Link2

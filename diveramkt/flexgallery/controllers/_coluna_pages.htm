@@ -1,0 +1,12 @@
+<?php
+use Cms\Classes\Page;
+use Cms\Classes\Theme;
+
+$theme = Theme::getActiveTheme();
+$currentTheme = Theme::getEditTheme();
+$allPages = Page::listInTheme($currentTheme, true);
+foreach($allPages as $key => $vet){
+	if($vet->id == $value) echo 'Páginas: '.$vet->title;
+}
+
+?>

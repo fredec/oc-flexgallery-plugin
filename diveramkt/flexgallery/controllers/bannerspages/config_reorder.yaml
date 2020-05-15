@@ -1,0 +1,4 @@
+title: BannersPages
+modelClass: Diveramkt\Flexgallery\Models\BannerPages
+toolbar:
+    buttons: reorder_toolbar

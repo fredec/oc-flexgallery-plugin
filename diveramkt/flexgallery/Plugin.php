@@ -7,16 +7,18 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
     	return [
-    		'Diveramkt\FlexGallery\Components\FlexGallery' => 'FlexGallery',
-            'Diveramkt\FlexGallery\Components\FlexBanner' => 'FlexBanner'
+    		// 'Diveramkt\FlexGallery\Components\FlexGallery' => 'FlexGallery',
+            'Diveramkt\FlexGallery\Components\FlexBanner' => 'FlexBanner',
+            'Diveramkt\FlexGallery\Components\BannersPages' => 'BannersPages',
         ];
     }
 
     public function registerPageSnippets()
     {
     	return [
-    		'Diveramkt\FlexGallery\Components\FlexGallery' => 'FlexGallery',
-            'Diveramkt\FlexGallery\Components\FlexBanner' => 'FlexBanner'
+    		// 'Diveramkt\FlexGallery\Components\FlexGallery' => 'FlexGallery',
+            'Diveramkt\FlexGallery\Components\FlexBanner' => 'FlexBanner',
+            'Diveramkt\FlexGallery\Components\BannersPages' => 'BannersPages',
         ];
     }
     
@@ -64,9 +66,43 @@ class Plugin extends PluginBase
     //     ];
     // }
 
+    private function getPhpFunctions()
+    {
+        return [
+            'link_whatsapp_botao' => function ($tel) {
+                $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                $android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+                $palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+                $berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+                $ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+
+                if ($iphone || $android || $palmpre || $ipod || $berry == true) {
+                    $link='https://api.whatsapp.com/send?phone=55';
+                } else {
+                    $link='https://web.whatsapp.com/send?phone=55';
+                }
+                return $link.preg_replace("/[^0-9]/", "", $tel);
+            },
+            'target_link_banner' => function($link){
+                if(!strpos("[".$link."]", $_SERVER['HTTP_HOST'])) return 'target="_blank"';
+                else return 'target="_parent"';
+            },
+        ];
+    }
 
     public function onRun()
     {
         //$this->addJs('/plugins/acme/blog/assets/javascript/blog-controls.js');
+    }
+
+    public function registerMarkupTags()
+    {
+        $filters = [];
+        // add PHP functions
+        $filters += $this->getPhpFunctions();
+
+        return [
+            'filters'   => $filters,
+        ];
     }
 }

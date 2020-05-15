@@ -1,0 +1,15 @@
+columns:
+    title:
+        label: 'diveramkt.flexgallery::lang.flexgallery.title'
+        type: text
+        searchable: true
+        sortable: true
+    subtitle:
+        label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
+        type: text
+        searchable: true
+        sortable: true
+    image:
+        label: 'diveramkt.flexgallery::lang.flexgallery.image'
+        type: partial
+        path: ~/plugins/diveramkt/flexgallery/models/onebanner/_image.htm
