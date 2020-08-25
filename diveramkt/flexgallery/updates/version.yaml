@@ -47,10 +47,13 @@
     - builder_table_update_diveramkt_flexgallery_onebanner_12.php
 1.0.17:
     - 'Updated table diveramkt_flexgallery_onebanner'
-    - builder_table_update_diveramkt_flexgallery_onebanner13.php
+    - builder_table_update_diveramkt_flexgallery_onebanner_13.php
 1.0.18:
     - 'Updated table diveramkt_flexgallery_onebanner'
-    - builder_table_update_diveramkt_flexgallery_onebanner_13.php
+    - builder_table_update_diveramkt_flexgallery_onebanner_14.php
 1.0.19:
     - 'Created table diveramkt_flexgallery_banner_pages'
     - builder_table_create_diveramkt_flexgallery_banner_pages.php
+1.0.20:
+    - 'Updated table diveramkt_flexgallery_onebanner'
+    - builder_table_update_diveramkt_flexgallery_onebanner_15.php

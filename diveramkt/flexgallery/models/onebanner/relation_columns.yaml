@@ -9,7 +9,7 @@ columns:
         type: text
         searchable: true
         sortable: true
-    bc_image:
+    image:
         label: 'diveramkt.flexgallery::lang.flexgallery.image'
         type: partial
         path: ~/plugins/diveramkt/flexgallery/models/onebanner/_image.htm

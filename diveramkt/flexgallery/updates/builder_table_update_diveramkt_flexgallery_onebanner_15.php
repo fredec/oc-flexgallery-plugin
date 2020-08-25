@@ -3,13 +3,14 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class BuilderTableUpdateDiveramktFlexgalleryOnebanner13 extends Migration
+class BuilderTableUpdateDiveramktFlexgalleryOnebanner15 extends Migration
 {
     public function up()
     {
         Schema::table('diveramkt_flexgallery_onebanner', function($table)
         {
-            $table->string('color_fundo', 255)->nullable()->default(null)->change();
+            $table->text('botoes')->nullable();
+            $table->integer('enabled_color_fundo')->default(0);
         });
     }
     
@@ -17,7 +18,8 @@ class BuilderTableUpdateDiveramktFlexgalleryOnebanner13 extends Migration
     {
         Schema::table('diveramkt_flexgallery_onebanner', function($table)
         {
-            $table->string('color_fundo', 255)->nullable(false)->default('null')->change();
+            $table->dropColumn('botoes');
+            $table->dropColumn('enabled_color_fundo');
         });
     }
 }
