@@ -25,6 +25,7 @@ fields:
         label: 'diveramkt.flexgallery::lang.flexgallery.description'
         size: small
         span: left
+        toolbarButtons: bold|italic
         type: richeditor
     position:
         label: 'diveramkt.flexgallery::lang.flexgallery.position'

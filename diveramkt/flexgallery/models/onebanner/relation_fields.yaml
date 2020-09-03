@@ -1,11 +1,11 @@
 fields:
     image:
         label: 'diveramkt.flexgallery::lang.flexgallery.image'
-        oc.commentPosition: ''
         mode: image
         span: right
-        required: 1
         type: mediafinder
+        required: 1
+        hidden: 0
     enabled:
         label: 'diveramkt.flexgallery::lang.flexgallery.enabled'
         span: auto
@@ -17,32 +17,36 @@ fields:
         span: left
         required: 1
         type: text
-    subtitle:
-        label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
-        span: left
-        type: text
-    description:
-        label: 'diveramkt.flexgallery::lang.flexgallery.description'
-        size: small
-        span: left
-        toolbarButtons: paragraphFormat|paragraphStyle|quote|bold|italic|align|formatOL|formatUL|insertTable|insertLink|insertImage|insertVideo|insertAudio|insertFile|insertHR|fullscreen|color|html
-        type: richeditor
-    position:
-        label: 'diveramkt.flexgallery::lang.flexgallery.position'
-        options:
-            center: Center
-            left: Left
-            right: Right
-        showSearch: true
-        span: left
-        type: dropdown
-    bc_image:
-        label: 'diveramkt.flexgallery::lang.flexgallery.bc_image'
-        mode: image
-        span: left
-        type: mediafinder
 tabs:
     fields:
+        subtitle:
+            label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
+            span: full
+            type: text
+            tab: 'Texto do banner'
+        description:
+            label: 'diveramkt.flexgallery::lang.flexgallery.description'
+            size: small
+            span: full
+            type: richeditor
+            toolbarButtons: bold|italic
+            tab: 'Texto do banner'
+        position:
+            label: 'diveramkt.flexgallery::lang.flexgallery.position'
+            options:
+                center: Center
+                left: Left
+                right: Right
+            showSearch: true
+            span: auto
+            type: dropdown
+            tab: 'Texto do banner'
+        color_text:
+            label: 'Cor do texto'
+            span: auto
+            type: colorpicker
+            tab: 'Texto do banner'
+            hidden: 0
         link:
             label: Link
             span: auto
@@ -70,16 +74,19 @@ tabs:
             label: Link
             span: full
             type: text
+            hidden: 1
             tab: Link2
         btn_label2:
             label: 'diveramkt.flexgallery::lang.flexgallery.btn_label'
             span: left
             type: text
+            hidden: 1
             tab: Link2
         btn_color2:
             label: 'diveramkt.flexgallery::lang.flexgallery.btn_color'
             span: right
             type: colorpicker
+            hidden: 1
             tab: Link2
         enabled_color_fundo:
             label: 'Habilitar  Cor de fundo'
@@ -91,3 +98,9 @@ tabs:
             span: full
             type: colorpicker
             tab: 'Cor de Fundo'
+        bc_image:
+            label: 'diveramkt.flexgallery::lang.flexgallery.bc_image'
+            mode: image
+            span: full
+            type: mediafinder
+            tab: 'Imagem de fundo'

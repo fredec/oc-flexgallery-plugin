@@ -20,7 +20,8 @@ class OneBanner extends Model
      * @var array Validation rules
      */
     public $rules = [
-        // 'title' => 'required',
+        'title' => 'required',
+        'image' => 'required',
     ];
 
     /**

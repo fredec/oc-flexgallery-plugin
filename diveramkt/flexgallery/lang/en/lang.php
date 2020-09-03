@@ -9,7 +9,7 @@
         'manage_flexgallery' => 'Manage FlexGallery',
         'gallery' => 'Gallery',
         'qtd_banners' => 'Qtd banners',
-        'image' => 'Image',
+        'image' => 'Imagem',
         'banner' => 'Banner',
         'btn_label' => 'Btn Label',
         'btn_color' => 'Btn Color',
@@ -21,7 +21,7 @@
         'banner_type' => 'Tipo de banner',
         'position' => 'Posição',
         'enabled' => 'Habilitado/Desabilitado',
-        'bc_image' => 'Imagem do banner ou arquivo de vídeo mp4',
+        'bc_image' => 'Imagem de fundo',
         'subtitle' => 'Subtítulo',
     ],
 ];
