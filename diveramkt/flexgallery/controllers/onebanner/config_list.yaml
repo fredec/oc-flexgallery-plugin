@@ -7,7 +7,7 @@ showCheckboxes: true
 recordsPerPage: 20
 defaultSort:
     column: sort_order
-    direction: asc
+    direction: desc
 toolbar:
     buttons: list_toolbar
     search:

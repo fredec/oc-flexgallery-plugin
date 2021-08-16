@@ -90,6 +90,16 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function boot(){
+        $class=get_declared_classes();
+        if(in_array('RainLab\Translate\Plugin', $class) || in_array('RainLab\Translate\Classes\Translator', $class)){
+            \Diveramkt\Flexgallery\Models\OneBanner::extend(function($model) {
+                $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
+                $model->translatable = ['subtitle','description','btn_label','image','bc_image'];
+            });
+        }
+    }
+
     public function onRun()
     {
         //$this->addJs('/plugins/acme/blog/assets/javascript/blog-controls.js');

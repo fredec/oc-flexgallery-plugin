@@ -27,10 +27,14 @@ class Banner extends Model
     public $table = 'diveramkt_flexgallery_banners';
 
     public $hasMany = [
-        'onebanner' => 'Diveramkt\Flexgallery\Models\OneBanner',
+        'onebanner' => [
+            'Diveramkt\Flexgallery\Models\OneBanner',
+            'order'      => 'sort_order desc',
+        ],
         'banners' => [
             'Diveramkt\Flexgallery\Models\OneBanner',
-            'scope' => 'isEnabled'
+            'scope' => 'isEnabled',
+            'order'      => 'sort_order desc',
         ]
     ];
 }

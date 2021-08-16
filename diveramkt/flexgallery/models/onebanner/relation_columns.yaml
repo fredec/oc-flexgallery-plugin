@@ -13,3 +13,10 @@ columns:
         label: 'diveramkt.flexgallery::lang.flexgallery.image'
         type: partial
         path: ~/plugins/diveramkt/flexgallery/models/onebanner/_image.htm
+    enabled:
+        label: 'diveramkt.flexgallery::lang.flexgallery.enabled'
+        type: partial
+        path: ~/plugins/diveramkt/flexgallery/controllers/_coluna_yesno.htm
+    sort_order:
+        label: 'diveramkt.flexgallery::lang.flexgallery.ordem'
+        type: text

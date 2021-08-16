@@ -24,7 +24,9 @@ class OneBanner extends Controller
     public function reorderExtendQuery($query)
     {
         $veri=explode('reorder/',$_SERVER['REDIRECT_URL']);
-        if(isset($veri[1]) && is_numeric($veri[1])) return $query->where('banner_id','=',$veri[1]);
+        if(isset($veri[1]) && is_numeric($veri[1])) $query->where('banner_id','=',$veri[1]);
+        $query->orderBy('sort_order', 'desc')->where('enabled',1);
+        return $query;
     }
 
     public function listExtendQuery($query)

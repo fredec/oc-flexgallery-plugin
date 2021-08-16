@@ -4,6 +4,7 @@ use Cms\Classes\ComponentBase;
 
 use Diveramkt\FlexGallery\Models\Banner;
 use Diveramkt\FlexGallery\Models\Settings;
+use Request;
 
 class FlexBanner extends ComponentBase
 {
@@ -193,6 +194,18 @@ class FlexBanner extends ComponentBase
 	public function onRun(){
 		$this->banner = $this->getBanner();
 		$this->gallery = $this->getBanner();
+
+		if(isset($this->gallery->banners[0]->id)){
+			foreach ($this->gallery->banners as $key => $value) {
+				if(empty($value->link)) continue;
+				if($value->btn_tipo == 1) $value->link=$this->whatsLink($value->link);
+				else $value->link=$this->prep_url($value->link);
+				$value->target=$this->target($value->link);
+
+				if($value->btn_label == '') $value->btn_label='acessar';
+			}
+		}
+		
 		$this->showThumbs = $this->property('showThumbs');
 		$this->thumbWidth = $this->property('thumbWidth');
 		$this->thumbHeight = $this->property('thumbHeight');
@@ -234,24 +247,65 @@ class FlexBanner extends ComponentBase
 	}
 
 	protected function getAllBanner(){
+		$result=array();
 		$query = Banner::all();
 
 		foreach ($query as $id=>$c)
-	        $result[$c->id] = $c->title;
+			$result[$c->id] = $c->title;
 
-	    return $result;
+		return $result;
 	}
 
 	public function createSettingsFields(){
 		$defaultFields = Settings::instance()->toArray();
 
 		if (!empty($defaultFields)) {
-            foreach ($defaultFields['value'] as $key => $defaultValue) {
-                $this->settings[$key] = $defaultValue;
-            }
-        }
+			foreach ($defaultFields['value'] as $key => $defaultValue) {
+				$this->settings[$key] = $defaultValue;
+			}
+		}
 
-        $this->settings = (object)$this->settings;
+		$this->settings = (object)$this->settings;
+	}
+
+
+	public function whatsLink($tel=false, $msg=false){
+		if(Request::server('HTTP_USER_AGENT')){
+			$iphone = strpos(Request::server('HTTP_USER_AGENT'),"iPhone");
+			$android = strpos(Request::server('HTTP_USER_AGENT'),"Android");
+			$palmpre = strpos(Request::server('HTTP_USER_AGENT'),"webOS");
+			$berry = strpos(Request::server('HTTP_USER_AGENT'),"BlackBerry");
+			$ipod = strpos(Request::server('HTTP_USER_AGENT'),"iPod");
+
+			$extra=''; if(!strpos("[".$tel."]", "+")) $extra='55';
+
+			if ($iphone || $android || $palmpre || $ipod || $berry == true) {
+				$link='https://api.whatsapp.com/send?phone='.$extra;
+			} else {
+				$link='https://web.whatsapp.com/send?phone='.$extra;
+			}
+			$link=$link.preg_replace("/[^0-9]/", "", $tel);
+			if($msg) $link.='&text='.$msg;
+			return $link;
+		}else return $tel;
+	}
+	public function prep_url($url=false){
+		$base = 'http' . ((Request::server('HTTPS') == 'on') ? 's' : '') . '://' . Request::server('HTTP_HOST') . str_replace('//', '/', dirname(Request::server('SCRIPT_NAME')) . '/');
+
+		if(!strpos("[".$url."]", "http://") && !strpos("[".$url."]", "https://")){
+			$veri=str_replace('www.','',Request::server('HTTP_HOST'). str_replace('//', '/', dirname(Request::server('SCRIPT_NAME'))));
+			if(!strpos("[".$url."]", ".") && !strpos("[".$veri."]", "https://")){
+				$url='http' . ((Request::server('HTTPS') == 'on') ? 's' : '') . '://www.'.str_replace(array('//','\/'),array('/','/'),$veri.'/'.$url);
+			}else $url='http://'.$url;
+		}
+		return str_replace('//www.','//',$url);
+	}
+
+	public function target($link){
+		$url = 'http' . ((Request::server('HTTPS') == 'on') ? 's' : '') . '://' . Request::server('HTTP_HOST');
+		$link=str_replace('//www.','//',$link); $url=str_replace('//www.','//',$url);
+		if(!strpos("[".$link."]", $url)) return 'target="_blank"';
+		else return 'target="_parent"';
 	}
 
 	public $banner;

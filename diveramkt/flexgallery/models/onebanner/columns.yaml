@@ -8,3 +8,6 @@ columns:
         label: 'diveramkt.flexgallery::lang.flexgallery.image'
         type: partial
         path: ~/plugins/diveramkt/flexgallery/models/onebanner/_image.htm
+    sort_order:
+        label: 'diveramkt.flexgallery::lang.flexgallery.ordem'
+        type: text

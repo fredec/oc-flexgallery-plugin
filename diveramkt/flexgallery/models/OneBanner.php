@@ -9,6 +9,14 @@ class OneBanner extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\Sortable;
+
+    public $implement = array();
+    public $translatable = array();
+
+    // \Diveramkt\Flexgallery\Models\OneBanner::extend(function($model) {
+    //     $model->implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+    //     $model->translatable = ['subtitle','description','btn_label','image','bc_image'];
+    // });
     
     /*
      * Disable timestamps by default.

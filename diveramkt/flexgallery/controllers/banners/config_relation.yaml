@@ -6,3 +6,6 @@ onebanner:
     view:
         list: $/diveramkt/flexgallery/models/onebanner/relation_columns.yaml
         toolbarButtons: create|delete|sort
+        defaultSort:
+            column: sort_order
+            direction: desc

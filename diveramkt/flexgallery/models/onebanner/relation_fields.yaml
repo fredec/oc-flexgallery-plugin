@@ -1,11 +1,4 @@
 fields:
-    image:
-        label: 'diveramkt.flexgallery::lang.flexgallery.image'
-        mode: image
-        span: right
-        type: mediafinder
-        required: 1
-        hidden: 0
     enabled:
         label: 'diveramkt.flexgallery::lang.flexgallery.enabled'
         span: auto
@@ -13,12 +6,36 @@ fields:
         type: switch
     title:
         label: 'diveramkt.flexgallery::lang.flexgallery.title'
-        oc.commentPosition: ''
-        span: left
+        span: right
         required: 1
         type: text
 tabs:
     fields:
+        image:
+            label: 'diveramkt.flexgallery::lang.flexgallery.image'
+            mode: image
+            imageWidth: '200'
+            span: auto
+            hidden: 0
+            required: 1
+            type: mediafinder
+            tab: Mídias
+        image_mobile:
+            label: 'diveramkt.flexgallery::lang.flexgallery.image_mobile'
+            mode: image
+            imageWidth: '200'
+            span: auto
+            hidden: 0
+            required: 1
+            type: mediafinder
+            tab: Mídias
+        bc_image:
+            label: 'diveramkt.flexgallery::lang.flexgallery.bc_image'
+            mode: image
+            imageWidth: '200'
+            span: auto
+            type: mediafinder
+            tab: Mídias
         subtitle:
             label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
             span: full
@@ -26,10 +43,10 @@ tabs:
             tab: 'Texto do banner'
         description:
             label: 'diveramkt.flexgallery::lang.flexgallery.description'
-            size: small
+            size: big
             span: full
             type: richeditor
-            toolbarButtons: bold|italic
+            toolbarButtons: paragraphFormat|bold|italic|align|insertImage|formatUL
             tab: 'Texto do banner'
         position:
             label: 'diveramkt.flexgallery::lang.flexgallery.position'
@@ -103,9 +120,3 @@ tabs:
             span: full
             type: colorpicker
             tab: 'Cor de Fundo'
-        bc_image:
-            label: 'diveramkt.flexgallery::lang.flexgallery.bc_image'
-            mode: image
-            span: full
-            type: mediafinder
-            tab: 'Imagem de fundo'

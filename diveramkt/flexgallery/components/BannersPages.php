@@ -29,7 +29,7 @@ class BannersPages extends ComponentBase
 
 	public function onRun(){
 		$this->dados = $this->getBanner();
-		$this->banner=$this->dados['banner'];
+		if(isset($this->dados['banner'])) $this->banner=$this->dados['banner'];
 	}
 	protected function getBanner(){
 		if(isset($this->page->id) && $this->page->id) return BannerPages::where('page',$this->page->id)->first();

@@ -10,6 +10,7 @@
         'gallery' => 'Gallery',
         'qtd_banners' => 'Qtd banners',
         'image' => 'Imagem',
+        'image_mobile' => 'Imagem no celular',
         'banner' => 'Banner',
         'btn_label' => 'Btn Label',
         'btn_color' => 'Btn Color',
@@ -23,5 +24,6 @@
         'enabled' => 'Habilitado/Desabilitado',
         'bc_image' => 'Imagem de fundo',
         'subtitle' => 'Subtítulo',
+        'ordem' => 'Ordem',
     ],
 ];
