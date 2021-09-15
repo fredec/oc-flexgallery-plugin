@@ -10,7 +10,7 @@ class BuilderTableUpdateDiveramktFlexgalleryOnebanner2 extends Migration
         Schema::table('diveramkt_flexgallery_onebanner', function($table)
         {
             $table->string('image', 255);
-            $table->integer('sort_order');
+            $table->integer('sort_order')->default(1);
         });
     }
     
