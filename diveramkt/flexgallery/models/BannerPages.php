@@ -28,6 +28,7 @@ class BannerPages extends Model
      * @var array Validation rules
      */
     public $rules = [
+        'banner' => 'required',
     ];
 
     public function getPageOptions(){

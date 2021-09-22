@@ -3,11 +3,16 @@ fields:
         label: Página
         showSearch: true
         span: auto
-        # type: dropdown
         type: partial
         path: $/diveramkt/flexgallery/controllers/_coluna_show_value.htm
     banner:
         label: Banner
         mode: image
         span: right
+        type: mediafinder
+    banner_mobile:
+        label: 'Banner Mobile'
+        mode: image
+        imageWidth: '150'
+        span: auto
         type: mediafinder

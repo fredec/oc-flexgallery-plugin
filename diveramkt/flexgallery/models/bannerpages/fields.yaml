@@ -9,3 +9,9 @@ fields:
         mode: image
         span: right
         type: mediafinder
+    banner_mobile:
+        label: 'Banner Mobile'
+        mode: image
+        imageWidth: '150'
+        span: auto
+        type: mediafinder

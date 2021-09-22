@@ -30,6 +30,7 @@ class BannersPages extends ComponentBase
 	public function onRun(){
 		$this->dados = $this->getBanner();
 		if(isset($this->dados['banner'])) $this->banner=$this->dados['banner'];
+		if(isset($this->dados['banner_mobile'])) $this->banner_mobile=$this->dados['banner_mobile'];
 	}
 	protected function getBanner(){
 		if(isset($this->page->id) && $this->page->id) return BannerPages::where('page',$this->page->id)->first();
@@ -58,6 +59,7 @@ class BannersPages extends ComponentBase
 	// }
 
 	public $banner;
+	public $banner_mobile;
 	public $dados;
 	// public $settings;
 }
