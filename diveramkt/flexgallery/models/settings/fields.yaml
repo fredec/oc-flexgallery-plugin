@@ -4,3 +4,79 @@ fields:
         span: auto
         default: 1
         type: switch
+tabs:
+    fields:
+        section1:
+            label: 'Imagem'
+            span: full
+            type: section
+            tab: 'Banners'
+        banners[mobile]:
+            label: 'Banner mobile'
+            span: auto
+            default: 1
+            type: switch
+            tab: 'Banners'
+        banners[img_back]:
+            label: 'Imagem de fundo'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'
+        section2:
+            label: 'Texto'
+            span: full
+            type: section
+            tab: 'Banners'
+        banners[text_subtitle]:
+            label: 'Sub título'
+            span: auto
+            default: 1
+            type: switch
+            tab: 'Banners'
+        banners[text_description]:
+            label: 'Descrição'
+            span: auto
+            default: 1
+            type: switch
+            tab: 'Banners'
+        banners[text_position]:
+            label: 'Posição do texto'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'
+        banners[text_color]:
+            label: 'Cor do texto'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'
+        section3:
+            label: 'Link'
+            span: full
+            type: section
+            tab: 'Banners'
+        banners[link_color]:
+            label: 'Cor do botão'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'
+        section4:
+            label: 'Extra'
+            span: full
+            type: section
+            tab: 'Banners'
+        banners[color_back]:
+            label: 'Cor de fundo'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'
+        banners[links_extra]:
+            label: 'Links Extra'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'

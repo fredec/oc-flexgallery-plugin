@@ -1,6 +1,7 @@
 <?php namespace Diveramkt\Flexgallery;
 
 use System\Classes\PluginBase;
+use Diveramkt\Flexgallery\Models\Settings;
 
 class Plugin extends PluginBase
 {
@@ -95,9 +96,42 @@ class Plugin extends PluginBase
         if(in_array('RainLab\Translate\Plugin', $class) || in_array('RainLab\Translate\Classes\Translator', $class)){
             \Diveramkt\Flexgallery\Models\OneBanner::extend(function($model) {
                 $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
-                $model->translatable = ['subtitle','description','btn_label','image','bc_image'];
+                $model->translatable = ['subtitle','description','btn_label','image','bc_image','image_mobile','links_extra'];
             });
         }
+
+        \Event::listen('backend.form.extendFields', function($widget)
+        {
+            if ($widget->isNested === false ) {
+
+                // if (!($theme = Theme::getEditTheme())) throw new ApplicationException(Lang::get('cms::lang.theme.edit.not_found'));
+
+                 // PluginManager::instance()->hasPlugin('RainLab.Pages') &&
+                if ($widget->model instanceof \Diveramkt\Flexgallery\Models\Onebanner) {  
+
+                    $settings=Settings::instance();
+                    $banners=$settings->banners;
+
+                    if(!isset($banners['links_extra']) || !$banners['links_extra']) $widget->removeField('links_extra');
+                    if(!isset($banners['color_back']) || !$banners['color_back']){
+                        $widget->removeField('enabled_color_fundo');
+                        $widget->removeField('color_fundo');
+                    }
+                    if(!isset($banners['link_color']) || !$banners['link_color']) $widget->removeField('btn_color');
+                    if(!isset($banners['text_color']) || !$banners['text_color']) $widget->removeField('color_text');
+                    if(!isset($banners['text_position']) || !$banners['text_position']) $widget->removeField('position');
+                    if(!isset($banners['img_back']) || !$banners['img_back']) $widget->removeField('bc_image');
+
+                    if(isset($banners['mobile']) && !$banners['mobile']) $widget->removeField('image_mobile');
+                    if(isset($banners['text_subtitle']) && !$banners['text_subtitle']) $widget->removeField('subtitle');
+                    if(isset($banners['text_description']) && !$banners['text_description']) $widget->removeField('description');
+
+                }
+
+            }
+
+        });
+
     }
 
     public function onRun()

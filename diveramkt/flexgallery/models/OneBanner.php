@@ -32,6 +32,8 @@ class OneBanner extends Model
         'image' => 'required',
     ];
 
+    public $jsonable = ['links_extra'];
+
     /**
      * @var string The database table used by the model.
      */

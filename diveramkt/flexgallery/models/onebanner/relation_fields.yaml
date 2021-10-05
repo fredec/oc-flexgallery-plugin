@@ -68,7 +68,8 @@ tabs:
             label: Link
             span: auto
             required: 0
-            type: text
+            size: tiny
+            type: textarea
             tab: Link
         btn_tipo:
             label: 'Botão Whatsapp'
@@ -110,6 +111,52 @@ tabs:
             type: colorpicker
             hidden: 1
             tab: Link2
+        links_extra:
+            label: 'Links extra'
+            prompt: 'Acrescentar novo link'
+            span: full
+            type: repeater
+            tab: 'Links extra'
+            form:
+                fields:
+                    enabled:
+                        label: Habilitado
+                        span: full
+                        type: switch
+                        default: 1
+                    label:
+                        label: Botão
+                        span: auto
+                        type: text
+                        comment: 'Caso vazio, será visível o link'
+                    type:
+                        label: 'Tipo de link'
+                        options:
+                            link: Padrão
+                            file: Arquivo
+                            whatsapp: Whatsapp
+                            phone: Telefone
+                        showSearch: true
+                        span: auto
+                        type: dropdown
+                    link:
+                        label: Link
+                        span: full
+                        trigger:
+                            action: hide
+                            field: type
+                            condition: 'value[file]'
+                        size: tiny
+                        type: textarea
+                    file:
+                        label: 'Buscar arquivo'
+                        mode: file
+                        span: full
+                        trigger:
+                            action: show
+                            field: type
+                            condition: 'value[file]'
+                        type: mediafinder
         enabled_color_fundo:
             label: 'Habilitar  Cor de fundo'
             span: auto

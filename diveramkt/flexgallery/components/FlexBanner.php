@@ -4,6 +4,7 @@ use Cms\Classes\ComponentBase;
 
 use Diveramkt\FlexGallery\Models\Banner;
 use Diveramkt\FlexGallery\Models\Settings;
+use System\Classes\MediaLibrary;
 use Request;
 
 class FlexBanner extends ComponentBase
@@ -201,8 +202,30 @@ class FlexBanner extends ComponentBase
 				if($value->btn_tipo == 1) $value->link=$this->whatsLink($value->link);
 				else $value->link=$this->prep_url($value->link);
 				$value->target=$this->target($value->link);
-
 				if($value->btn_label == '') $value->btn_label='acessar';
+				if(isset($value->links_extra[0])){
+					$links_extra=[];
+					foreach ($value->links_extra as $key2 => $vet) {
+						if(!isset($vet['enabled']) || !$vet['enabled']) continue;
+						if($vet['type'] == 'file' && empty($vet['file'])) continue;
+						if($vet['type'] != 'file' && empty($vet['link'])) continue;
+
+						if($vet['type'] == 'link'){
+							$vet['url']=$this->prep_url($vet['link']);
+						}elseif($vet['type'] == 'whatsapp'){
+							$vet['url']=$this->whatsLink($vet['link']);
+						}elseif($vet['type'] == 'phone'){
+							$vet['url']='tel:'.preg_replace("/[^0-9]/", "", $vet['link']);
+						}elseif($vet['type'] == 'file'){
+							$vet['url']=url(MediaLibrary::url($vet['file']));
+							$vet['target']=' target=_blank ';
+						}
+						if(isset($vet['url']) && !isset($vet['target'])) $vet['target']=$this->target($vet['url']);
+						if(!isset($vet['label']) || empty($vet['label'])) $vet['label']=$vet['url'];
+						$links_extra[]=$vet;
+					}
+					$value->links_extra=$links_extra;
+				}
 			}
 		}
 		
@@ -304,8 +327,8 @@ class FlexBanner extends ComponentBase
 	public function target($link){
 		$url = 'http' . ((Request::server('HTTPS') == 'on') ? 's' : '') . '://' . Request::server('HTTP_HOST');
 		$link=str_replace('//www.','//',$link); $url=str_replace('//www.','//',$url);
-		if(!strpos("[".$link."]", $url)) return 'target="_blank"';
-		else return 'target="_parent"';
+		if(!strpos("[".$link."]", $url)) return 'target=_blank';
+		else return 'target=_parent';
 	}
 
 	public $banner;
