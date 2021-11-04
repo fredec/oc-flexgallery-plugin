@@ -36,17 +36,24 @@ tabs:
             span: auto
             type: mediafinder
             tab: Mídias
+        side_image:
+            label: 'diveramkt.flexgallery::lang.flexgallery.side_image'
+            mode: image
+            imageWidth: '200'
+            span: auto
+            type: fileupload
+            tab: Mídias
         subtitle:
             label: 'diveramkt.flexgallery::lang.flexgallery.subtitle'
+            size: small
             span: full
-            type: text
+            type: richeditor
             tab: 'Texto do banner'
         description:
             label: 'diveramkt.flexgallery::lang.flexgallery.description'
-            size: big
+            size: large
             span: full
             type: richeditor
-            toolbarButtons: paragraphFormat|bold|italic|align|insertImage|formatUL
             tab: 'Texto do banner'
         position:
             label: 'diveramkt.flexgallery::lang.flexgallery.position'

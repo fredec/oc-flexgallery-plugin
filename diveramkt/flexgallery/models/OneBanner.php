@@ -10,8 +10,8 @@ class OneBanner extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\Sortable;
 
-    public $implement = array();
-    public $translatable = array();
+    public $implement = [];
+    public $translatable = ['subtitle','description','btn_label','image','bc_image','image_mobile','links_extra'];
 
     // \Diveramkt\Flexgallery\Models\OneBanner::extend(function($model) {
     //     $model->implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
@@ -23,6 +23,10 @@ class OneBanner extends Model
      * Remove this line if timestamps are defined in the database table.
      */
     public $timestamps = false;
+
+    public $attachOne = [
+        'side_image' => 'System\Models\File',
+    ];
 
     /**
      * @var array Validation rules

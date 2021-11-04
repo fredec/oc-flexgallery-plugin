@@ -96,9 +96,10 @@ class Plugin extends PluginBase
         if(in_array('RainLab\Translate\Plugin', $class) || in_array('RainLab\Translate\Classes\Translator', $class)){
             \Diveramkt\Flexgallery\Models\OneBanner::extend(function($model) {
                 $model->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
-                $model->translatable = ['subtitle','description','btn_label','image','bc_image','image_mobile','links_extra'];
+                // $model->translatable = ['subtitle','description','btn_label','image','bc_image','image_mobile','links_extra'];
             });
         }
+
 
         \Event::listen('backend.form.extendFields', function($widget)
         {
@@ -121,6 +122,7 @@ class Plugin extends PluginBase
                     if(!isset($banners['text_color']) || !$banners['text_color']) $widget->removeField('color_text');
                     if(!isset($banners['text_position']) || !$banners['text_position']) $widget->removeField('position');
                     if(!isset($banners['img_back']) || !$banners['img_back']) $widget->removeField('bc_image');
+                    if(!isset($banners['side_back']) || !$banners['side_back']) $widget->removeField('side_image');
 
                     if(isset($banners['mobile']) && !$banners['mobile']) $widget->removeField('image_mobile');
                     if(isset($banners['text_subtitle']) && !$banners['text_subtitle']) $widget->removeField('subtitle');

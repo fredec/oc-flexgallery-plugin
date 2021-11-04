@@ -42,7 +42,7 @@ class BannerPages extends Model
 
         $retorno['']='Selecionar Página';
         foreach ($allPages as $pg) {
-            if(isset($pags[$pg->id])) continue;
+            if(isset($pags[$pg->id]) && $pg->id != $this->page) continue;
             $retorno[$pg->id]=ucfirst($pg->title);
         }
 

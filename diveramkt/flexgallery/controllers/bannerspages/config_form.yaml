@@ -8,4 +8,4 @@ create:
 update:
     redirect: diveramkt/flexgallery/bannerspages
     redirectClose: diveramkt/flexgallery/bannerspages
-    form: $/diveramkt/flexgallery/models/bannerpages/fields_edit.yaml
+    # form: $/diveramkt/flexgallery/models/bannerpages/fields_edit.yaml

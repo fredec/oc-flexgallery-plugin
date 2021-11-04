@@ -4,10 +4,19 @@ fields:
         showSearch: true
         span: auto
         type: dropdown
+    image_share:
+        label: 'Imagem compartilhada'
+        span: auto
+        type: switch
+        comment: 'Caso positivo, esta imagem ficará como capa da página quando compartilha nas redes sociais'
+    section1:
+        label: Imagens
+        span: full
+        type: section
     banner:
         label: Banner
         mode: image
-        span: right
+        span: auto
         type: mediafinder
     banner_mobile:
         label: 'Banner Mobile'

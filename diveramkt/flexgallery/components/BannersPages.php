@@ -29,8 +29,19 @@ class BannersPages extends ComponentBase
 
 	public function onRun(){
 		$this->dados = $this->getBanner();
+		if(isset($this->dados['image_share'])) $this->image_share=$this->dados['image_share'];
 		if(isset($this->dados['banner'])) $this->banner=$this->dados['banner'];
 		if(isset($this->dados['banner_mobile'])) $this->banner_mobile=$this->dados['banner_mobile'];
+
+
+		if(isset($this->dados->id) && $this->dados->banner && $this->dados->image_share){
+			$image=url(\System\Classes\MediaLibrary::url($this->dados->banner));
+			$this->page['image_shared']=$image;
+			\Cms\Models\ThemeData::extend(function($model) use ($image) {
+				$path=['path' => $image];
+				$model->addDynamicProperty('site_logo_sociais', $path);
+			});
+		}
 	}
 	protected function getBanner(){
 		if(isset($this->page->id) && $this->page->id) return BannerPages::where('page',$this->page->id)->first();
@@ -61,5 +72,6 @@ class BannersPages extends ComponentBase
 	public $banner;
 	public $banner_mobile;
 	public $dados;
+	public $image_share;
 	// public $settings;
 }

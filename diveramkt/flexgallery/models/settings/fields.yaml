@@ -23,6 +23,12 @@ tabs:
             default: 0
             type: switch
             tab: 'Banners'
+        banners[side_back]:
+            label: 'Imagem na lateral'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'
         section2:
             label: 'Texto'
             span: full

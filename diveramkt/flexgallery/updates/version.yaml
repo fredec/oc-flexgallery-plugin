@@ -78,3 +78,9 @@
 1.0.27:
     - 'Updated table diveramkt_flexgallery_onebanner'
     - builder_table_update_diveramkt_flexgallery_onebanner_21.php
+1.0.28:
+    - 'Updated table diveramkt_flexgallery_onebanner'
+    - builder_table_update_diveramkt_flexgallery_onebanner_22.php
+1.0.29:
+    - 'Updated table diveramkt_flexgallery_banner_pages'
+    - builder_table_update_diveramkt_flexgallery_banner_pages_2.php
