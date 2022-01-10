@@ -4,6 +4,7 @@
         'description' => '',
     ],
     'flexgallery' => [
+        'colors' => 'Cores',
         'title' => 'Título',
         'images' => 'Images',
         'manage_flexgallery' => 'Manage FlexGallery',
@@ -14,6 +15,7 @@
         'banner' => 'Banner',
         'btn_label' => 'Btn Label',
         'btn_color' => 'Btn Color',
+        'btn_color_text' => 'Color do texto do botão',
         'banners' => 'Banners',
         'banners_page' => 'Banners das páginas internas',
         'manage_banners' => 'Manage Banners',

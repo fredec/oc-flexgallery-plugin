@@ -27,7 +27,7 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'Flex Gallery',
+                'label'       => 'Banners',
                 'description' => 'Manage the Flex Gallery settings to have a better experience using the plugin.',
                 'category'    => 'DiveraMkt',
                 'icon'        => 'icon-image',
@@ -118,7 +118,14 @@ class Plugin extends PluginBase
                         $widget->removeField('enabled_color_fundo');
                         $widget->removeField('color_fundo');
                     }
-                    if(!isset($banners['link_color']) || !$banners['link_color']) $widget->removeField('btn_color');
+                    if(!isset($banners['link_color']) || !$banners['link_color']){
+                        $widget->removeField('sectioncolor');
+                        $widget->removeField('btn_color');
+                        $widget->removeField('infos[btn_color_text]');
+                    }
+                    if(!isset($banners['btn_class']) || !$banners['btn_class']){
+                        $widget->removeField('btn_class');
+                    }
                     if(!isset($banners['text_color']) || !$banners['text_color']) $widget->removeField('color_text');
                     if(!isset($banners['text_position']) || !$banners['text_position']) $widget->removeField('position');
                     if(!isset($banners['img_back']) || !$banners['img_back']) $widget->removeField('bc_image');

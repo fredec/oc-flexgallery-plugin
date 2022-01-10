@@ -28,6 +28,8 @@ class OneBanner extends Model
         'side_image' => 'System\Models\File',
     ];
 
+
+
     /**
      * @var array Validation rules
      */
@@ -36,7 +38,23 @@ class OneBanner extends Model
         'image' => 'required',
     ];
 
-    public $jsonable = ['links_extra'];
+    public $jsonable = ['links_extra','infos'];
+
+    function afterFetch(){
+        if(isset($this->infos) && is_array($this->infos) && count($this->infos) > 0){
+            foreach ($this->infos as $key => $value) {
+                $this->$key=$value;
+            }
+        }
+    }
+
+    function beforeSave(){
+        if(isset($this->infos) && is_array($this->infos) && count($this->infos) > 0){
+            foreach ($this->infos as $key => $value) {
+                if(isset($this->$key)) unset($this->$key);
+            }
+        }
+    }
 
     /**
      * @var string The database table used by the model.

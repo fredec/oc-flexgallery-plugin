@@ -69,6 +69,12 @@ tabs:
             default: 0
             type: switch
             tab: 'Banners'
+        banners[btn_class]:
+            label: 'Classes extras nos botões'
+            span: auto
+            default: 0
+            type: switch
+            tab: 'Banners'
         section4:
             label: 'Extra'
             span: full

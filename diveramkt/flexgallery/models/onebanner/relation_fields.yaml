@@ -58,9 +58,9 @@ tabs:
         position:
             label: 'diveramkt.flexgallery::lang.flexgallery.position'
             options:
-                center: Center
-                left: Left
-                right: Right
+                center: Centro
+                left: Esquerdo
+                right: Direto
             showSearch: true
             span: auto
             type: dropdown
@@ -73,7 +73,7 @@ tabs:
             hidden: 0
         link:
             label: Link
-            span: auto
+            span: full
             required: 0
             size: tiny
             type: textarea
@@ -85,13 +85,24 @@ tabs:
             tab: Link
         btn_label:
             label: 'diveramkt.flexgallery::lang.flexgallery.btn_label'
-            span: left
+            span: auto
             required: 0
             type: text
             tab: Link
+        sectioncolor:
+            label: 'diveramkt.flexgallery::lang.flexgallery.colors'
+            type: section
+            span: full
+            tab: Link
         btn_color:
             label: 'diveramkt.flexgallery::lang.flexgallery.btn_color'
-            span: right
+            span: auto
+            required: 0
+            type: colorpicker
+            tab: Link
+        infos[btn_color_text]:
+            label: 'diveramkt.flexgallery::lang.flexgallery.btn_color_text'
+            span: auto
             required: 0
             type: colorpicker
             tab: Link
