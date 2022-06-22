@@ -18,7 +18,7 @@
         'btn_color_text' => 'Color do texto do botão',
         'banners' => 'Banners',
         'banners_page' => 'Banners das páginas internas',
-        'manage_banners' => 'Manage Banners',
+        'manage_banners' => 'Gerenciar Banners',
         'manage_banners_pages' => 'Manage Banners Pages',
         'description' => 'Descrição',
         'banner_type' => 'Tipo de banner',

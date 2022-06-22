@@ -1,6 +1,8 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
+        <?php if ($this->user->hasPermission(['manage_banners'])) { ?>
         <li><a href="<?= Backend::url('diveramkt/flexgallery/banners') ?>">Banners</a></li>
+        <?php } ?>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -13,6 +15,7 @@
             <?= $this->formRender() ?>
         </div>
 
+        <?php if ($this->user->hasPermission(['manage_banners'])) { ?>
         <div class="form-buttons">
             <div class="loading-indicator-container">
                 <button
@@ -46,6 +49,7 @@
                 </span>
             </div>
         </div>
+        <?php } ?>
     <?= Form::close() ?>
 
 <?php else: ?>

@@ -24,171 +24,171 @@ class FlexBanner extends ComponentBase
 				'description' => 'The banners that will be show',
 				'type' => 'dropdown',
 			],
-			'showThumbs' => [
-				'title' => 'Show Thumbs',
-				'description' => 'True to show thumbnails, False to show the original image',
-				'default' => 'false',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-			],
-			'thumbWidth' => [
-				'title' => 'Thumb Width (px)',
-				'description' => 'Width of the thumb',
-				'default' => '100',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Thumbnail'
-			],
-			'thumbHeight' => [
-				'title' => 'Thumb Height (px)',
-				'description' => 'Height of the thumb',
-				'default' => '0',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Thumbnail'
-			],
-			'autoPlay' => [
-				'title' => 'AutoPlay',
-				'description' => 'If the transition starts automatically or not',
-				'default' => 'true',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-				'group' => 'Options'
-			],
-			'autoPlaySpeed' => [
-				'title' => 'AutoPlay Speed',
-				'description' => 'How many seconds to slide',
-				'default' => '500',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Options'
-			],
-			'dots' => [
-				'title' => 'Dots',
-				'description' => 'Show dots do navigation',
-				'default' => 'true',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-				'group' => 'Options'
-			],
-			'arrows' => [
-				'title' => 'Arrows',
-				'description' => 'Show the left and right arrows',
-				'default' => 'true',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-				'group' => 'Options'
-			],
-			'infinite' => [
-				'title' => 'Infinite',
-				'description' => 'If the carousel is infinite or will get back',
-				'default' => 'true',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-				'group' => 'Options'
-			],
-			'speed' => [
-				'title' => 'Speed',
-				'description' => 'The transition speed',
-				'default' => '300',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Options'
-			],
-			'slidesToShow' => [
-				'title' => 'Slide to show',
-				'description' => 'How many slides to show at once',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Options'
-			],
-			'slidesToScrow' => [
-				'title' => 'Slide to scrow',
-				'description' => 'How many slides will scrow in each transition',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Options'
-			],
+			// 'showThumbs' => [
+			// 	'title' => 'Show Thumbs',
+			// 	'description' => 'True to show thumbnails, False to show the original image',
+			// 	'default' => 'false',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// ],
+			// 'thumbWidth' => [
+			// 	'title' => 'Thumb Width (px)',
+			// 	'description' => 'Width of the thumb',
+			// 	'default' => '100',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Thumbnail'
+			// ],
+			// 'thumbHeight' => [
+			// 	'title' => 'Thumb Height (px)',
+			// 	'description' => 'Height of the thumb',
+			// 	'default' => '0',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Thumbnail'
+			// ],
+			// 'autoPlay' => [
+			// 	'title' => 'AutoPlay',
+			// 	'description' => 'If the transition starts automatically or not',
+			// 	'default' => 'true',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// 	'group' => 'Options'
+			// ],
+			// 'autoPlaySpeed' => [
+			// 	'title' => 'AutoPlay Speed',
+			// 	'description' => 'How many seconds to slide',
+			// 	'default' => '500',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Options'
+			// ],
+			// 'dots' => [
+			// 	'title' => 'Dots',
+			// 	'description' => 'Show dots do navigation',
+			// 	'default' => 'true',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// 	'group' => 'Options'
+			// ],
+			// 'arrows' => [
+			// 	'title' => 'Arrows',
+			// 	'description' => 'Show the left and right arrows',
+			// 	'default' => 'true',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// 	'group' => 'Options'
+			// ],
+			// 'infinite' => [
+			// 	'title' => 'Infinite',
+			// 	'description' => 'If the carousel is infinite or will get back',
+			// 	'default' => 'true',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// 	'group' => 'Options'
+			// ],
+			// 'speed' => [
+			// 	'title' => 'Speed',
+			// 	'description' => 'The transition speed',
+			// 	'default' => '300',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Options'
+			// ],
+			// 'slidesToShow' => [
+			// 	'title' => 'Slide to show',
+			// 	'description' => 'How many slides to show at once',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Options'
+			// ],
+			// 'slidesToScrow' => [
+			// 	'title' => 'Slide to scrow',
+			// 	'description' => 'How many slides will scrow in each transition',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Options'
+			// ],
 
-			//Breakpoint 1200px
-			'r1024_dots' => [
-				'title' => 'Dots',
-				'description' => 'Show dots do navigation',
-				'default' => 'true',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-				'group' => 'Breakpoint 1024px'
-			],
-			'r1024_slidesToShow' => [
-				'title' => 'Slide to show',
-				'description' => 'How many slides to show at once',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Breakpoint 1024px'
-			],
-			'r1024_slidesToScrow' => [
-				'title' => 'Slide to scrow',
-				'description' => 'How many slides will scrow in each transition',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Breakpoint 1024px'
-			],
+			// //Breakpoint 1200px
+			// 'r1024_dots' => [
+			// 	'title' => 'Dots',
+			// 	'description' => 'Show dots do navigation',
+			// 	'default' => 'true',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// 	'group' => 'Breakpoint 1024px'
+			// ],
+			// 'r1024_slidesToShow' => [
+			// 	'title' => 'Slide to show',
+			// 	'description' => 'How many slides to show at once',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Breakpoint 1024px'
+			// ],
+			// 'r1024_slidesToScrow' => [
+			// 	'title' => 'Slide to scrow',
+			// 	'description' => 'How many slides will scrow in each transition',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Breakpoint 1024px'
+			// ],
 
-			//Breakpoint 767px
-			'r600_dots' => [
-				'title' => 'Dots',
-				'description' => 'Show dots do navigation',
-				'default' => 'true',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-				'group' => 'Breakpoint 600px'
-			],
-			'r600_slidesToShow' => [
-				'title' => 'Slide to show',
-				'description' => 'How many slides to show at once',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Breakpoint 600px'
-			],
-			'r600_slidesToScrow' => [
-				'title' => 'Slide to scrow',
-				'description' => 'How many slides will scrow in each transition',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Breakpoint 600px'
-			],
+			// //Breakpoint 767px
+			// 'r600_dots' => [
+			// 	'title' => 'Dots',
+			// 	'description' => 'Show dots do navigation',
+			// 	'default' => 'true',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// 	'group' => 'Breakpoint 600px'
+			// ],
+			// 'r600_slidesToShow' => [
+			// 	'title' => 'Slide to show',
+			// 	'description' => 'How many slides to show at once',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Breakpoint 600px'
+			// ],
+			// 'r600_slidesToScrow' => [
+			// 	'title' => 'Slide to scrow',
+			// 	'description' => 'How many slides will scrow in each transition',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Breakpoint 600px'
+			// ],
 
-			//Breakpoint 480px
-			'r480_dots' => [
-				'title' => 'Dots',
-				'description' => 'Show dots do navigation',
-				'default' => 'true',
-				'type' => 'dropdown',
-				'options' => ['true' => 'True', 'false' => 'False'],
-				'group' => 'Breakpoint 480px'
-			],
-			'r480_slidesToShow' => [
-				'title' => 'Slide to show',
-				'description' => 'How many slides to show at once',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Breakpoint 480px'
-			],
-			'r480_slidesToScrow' => [
-				'title' => 'Slide to scrow',
-				'description' => 'How many slides will scrow in each transition',
-				'default' => '4',
-				'validationPattern' => '^[0-9]+$',
-				'validationMessage' => 'Only numbers allowed',
-				'group' => 'Breakpoint 480px'
-			],
+			// //Breakpoint 480px
+			// 'r480_dots' => [
+			// 	'title' => 'Dots',
+			// 	'description' => 'Show dots do navigation',
+			// 	'default' => 'true',
+			// 	'type' => 'dropdown',
+			// 	'options' => ['true' => 'True', 'false' => 'False'],
+			// 	'group' => 'Breakpoint 480px'
+			// ],
+			// 'r480_slidesToShow' => [
+			// 	'title' => 'Slide to show',
+			// 	'description' => 'How many slides to show at once',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Breakpoint 480px'
+			// ],
+			// 'r480_slidesToScrow' => [
+			// 	'title' => 'Slide to scrow',
+			// 	'description' => 'How many slides will scrow in each transition',
+			// 	'default' => '4',
+			// 	'validationPattern' => '^[0-9]+$',
+			// 	'validationMessage' => 'Only numbers allowed',
+			// 	'group' => 'Breakpoint 480px'
+			// ],
 		];
 	}
 
@@ -202,7 +202,7 @@ class FlexBanner extends ComponentBase
 				if($value->btn_tipo == 1) $value->link=$this->whatsLink($value->link);
 				else $value->link=$this->prep_url($value->link);
 				$value->target=$this->target($value->link);
-				if($value->btn_label == '') $value->btn_label='acessar';
+				// if($value->btn_label == '') $value->btn_label='acessar';
 				if(isset($value->links_extra[0])){
 					$links_extra=[];
 					foreach ($value->links_extra as $key2 => $vet) {

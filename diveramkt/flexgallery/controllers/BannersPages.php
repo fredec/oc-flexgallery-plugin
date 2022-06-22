@@ -12,7 +12,7 @@ class BannersPages extends Controller
     public $reorderConfig = 'config_reorder.yaml';
 
     public $requiredPermissions = [
-        'manage_banners_pages' 
+        'manage_banners_pages','manage_banners'
     ];
 
     public function __construct()

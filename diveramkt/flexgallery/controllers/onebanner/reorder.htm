@@ -1,6 +1,8 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('diveramkt/flexgallery/onebanner') ?>">OneBanner</a></li>
+        <?php if ($this->user->hasPermission(['manage_banners'])) { ?>
+        <li><a href="<?= Backend::url('diveramkt/flexgallery/onebanner') ?>">Voltar</a></li>
+        <?php } ?>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>

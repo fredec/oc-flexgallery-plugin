@@ -17,7 +17,6 @@ tabs:
             imageWidth: '200'
             span: auto
             hidden: 0
-            required: 1
             type: mediafinder
             tab: Mídias
         image_mobile:
@@ -26,7 +25,6 @@ tabs:
             imageWidth: '200'
             span: auto
             hidden: 0
-            required: 1
             type: mediafinder
             tab: Mídias
         bc_image:

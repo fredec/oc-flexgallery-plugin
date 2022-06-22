@@ -1,0 +1,81 @@
+
+<?php
+if(isset($items)){
+
+$redirect = array_shift($items);
+if(isset($redirect->url)){
+
+?>
+<!-- <script type="text/javascript">
+    window.location.href = "<?=$redirect->url?>"; 
+</script> -->
+<?php
+}
+
+}
+?>
+
+<?php 
+return;
+
+?>
+
+<?php if(isset($items)){ ?>
+<div class="control-settings top-level">
+
+    <ul class="settings-items row">
+
+        <?php foreach ($items as $item): ?>
+        <li class="settings-item col-xs-12 col-md-6 col-lg-4">
+            <a href="<?= $item->url ?>">
+                <div class="item-icon"><i class="<?= $item->icon ?>"></i></div>
+                <h5><?= e(trans($item->label)) ?></h5>
+                <p></p>
+            </a>
+        </li>
+        <?php endforeach ?>
+
+    </ul>
+
+</div>
+<?php } ?>
+
+
+
+
+
+<div class="layout-cell sidenav-tree bg-p">
+    <div class="layout-relative">
+
+        <div class="layout-absolute">
+            <div class="control-scrollbar drag-scrollbar vertical" data-control="scrollbar" data-disposable=""><div class="scrollbar-scrollbar" style=""><div class="scrollbar-track" ><div class="scrollbar-thumb" ></div></div></div>
+            <ul class="top-level">
+                <li >
+                    <!-- data-group-code="system::lang.system.categories.misc" -->
+                    <div class="group">
+                        <h3>Diversos</h3>
+                    </div>
+
+                    <ul>
+                        <li style="max-width: 300px;display: inline-block;" class="" data-keywords="">
+                            <a href="http://jadapaxitauna.october/backend/system/settings/update/toughdeveloper/imageresizer/settings" ontouchstart="">
+                                <i class="icon-picture-o"></i>
+                                <span class="header">Image Resizer Settings</span>
+                                <span class="description">Configure Image Resizer Settings</span>
+                            </a>
+                        </li>
+                        <li style="max-width: 300px;display: inline-block;" class="" data-keywords="">
+                            <a href="http://jadapaxitauna.october/backend/system/settings/update/klyp/wpimporter/wpimportersettings" ontouchstart="">
+                                <i class="icon-download"></i>
+                                <span class="header">Wordpress Importer for Blog</span>
+                                <span class="description">Import Wordpress posts into Blog plugin.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>                        
+        </div>
+    </div>
+
+</div>
+</div>

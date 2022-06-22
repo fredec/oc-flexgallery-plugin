@@ -2,6 +2,8 @@
 
 use System\Classes\PluginBase;
 use Diveramkt\Flexgallery\Models\Settings;
+use Backend;
+use Str;
 
 class Plugin extends PluginBase
 {
@@ -100,6 +102,12 @@ class Plugin extends PluginBase
             });
         }
 
+        // \Event::listen('backend.form.extendColumns', function($listWidget)
+        // {
+        //     // if (!$listWidget->model instanceof \Diveramkt\Flexgallery\Models\Onebanner) {
+        //     $listWidget->removeColumn('subtitle');
+        //     // }
+        // });
 
         \Event::listen('backend.form.extendFields', function($widget)
         {
@@ -158,4 +166,88 @@ class Plugin extends PluginBase
             'filters'   => $filters,
         ];
     }
+
+    public static $getBannerSave=false;
+    public static function getBanner(){
+        if(!Self::$getBannerSave) Self::$getBannerSave=\Diveramkt\Flexgallery\Models\Banner::get();
+        return Self::$getBannerSave;
+    }
+
+    public function registerNavigation()
+    {
+        $retorno=[
+            'main-menu-flexgallery' => [
+                'label'       => 'diveramkt.flexgallery::lang.plugin.name',
+                'url'         => Backend::url('diveramkt/flexgallery/homeplugin'),
+                'icon'        => 'icon-image',
+                // 'iconSvg'     => 'plugins/rainlab/pages/assets/images/pages-icon.svg',
+                'permissions' => ['manage_banners','manage_banners_pages'],
+                // 'order'       => 200,
+                'sideMenu' => [
+                    'side-menu-banners' => [
+                        'label'       => 'diveramkt.flexgallery::lang.flexgallery.banners',
+                        'url'         => Backend::url('diveramkt/flexgallery/banners'),
+                        'icon'        => 'icon-desktop',
+                        // 'attributes'  => ['data-menu-item'=>'pages'],
+                        'permissions' => ['manage_banners']
+                    ],
+                ]
+            ]
+        ];
+
+        // $banner=\Diveramkt\Flexgallery\Models\Banner::get();
+        $banner=$this->getBanner();
+        if(count($banner) > 0){
+            foreach ($banner as $key => $value) {
+                // $slug=Str::slug($value->title);
+                $perm='manage_banners_page_'.$value->id;
+                $retorno['main-menu-flexgallery']['sideMenu']['side-menu-page_'.$value->id] = [
+                    'label'       => 'Página: '.$value->title,
+                    'url'         => Backend::url('diveramkt/flexgallery/banners/update/'.$value->id),
+                    'icon'        => 'icon-image',
+                    'permissions' => ['manage_banners',$perm],
+                ];            
+            }
+        }
+
+        $retorno['main-menu-flexgallery']['sideMenu']['side-menu-banners_page'] = [
+            'label'       => 'diveramkt.flexgallery::lang.flexgallery.banners_page',
+            'url'         => Backend::url('diveramkt/flexgallery/bannerspages'),
+            'icon'        => 'icon-image',
+            'permissions' => ['manage_banners','manage_banners_pages']
+        ];
+
+        return $retorno;
+    }
+
+    public function registerPermissions()
+    {
+        $banner=$this->getBanner();
+        $return=[
+            'manage_banners_pages' => [
+                'tab'   => 'diveramkt.flexgallery::lang.plugin.name',
+                'label' => 'diveramkt.flexgallery::lang.flexgallery.banners_page',
+            ],
+            'manage_banners' => [
+                'tab'   => 'diveramkt.flexgallery::lang.plugin.name',
+                // 'order' => 200,
+                'label' => 'diveramkt.flexgallery::lang.flexgallery.manage_banners',
+            ],
+        ];
+
+        if(count($banner) > 0){
+            foreach ($banner as $key => $value) {
+                // $slug=Str::slug($value->title);
+                $perm='manage_banners_page_'.$value->id;
+
+                $return[$perm]=[
+                    'tab'   => 'diveramkt.flexgallery::lang.plugin.name',
+                    'label' => 'Gerenciar Página: '.$value->title,
+                ];
+            }
+        }
+
+        return $return;
+    }
+
 }
